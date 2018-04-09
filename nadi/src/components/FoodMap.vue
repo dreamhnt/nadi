@@ -9,7 +9,7 @@
 import PlaceList from './placeList'
 
 export default {
-  name: 'HelloWorld',
+  name: 'FoodMap',
   data () {
     return {
       map: null,
@@ -19,16 +19,21 @@ export default {
   },
   components: { PlaceList },
   mounted () {
-    this.getCurrentPosition()
-      .then(position => {
-        const mapContainer = document.getElementById('map') // 지도를 표시할 div
-        const mapOption = {
-          center: position, // 지도의 중심좌표
-          level: 3 // 지도의 확대 레벨
-        }
-        this.map = new window.daum.maps.Map(mapContainer, mapOption) // 지도 생성
-      })
-
+    // this.getCurrentPosition()
+    //   .then(position => {
+    //     const mapContainer = document.getElementById('map') // 지도를 표시할 div
+    //     const mapOption = {
+    //       center: position, // 지도의 중심좌표
+    //       level: 3 // 지도의 확대 레벨
+    //     }
+    //     this.map = new window.daum.maps.Map(mapContainer, mapOption) // 지도 생성
+    //   })
+    const mapContainer = document.getElementById('map') // 지도를 표시할 div
+    const mapOption = {
+      center: new window.daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+      level: 3 // 지도의 확대 레벨
+    }
+    this.map = new window.daum.maps.Map(mapContainer, mapOption) // 지도 생성
     this.infowindow = new window.daum.maps.InfoWindow({zIndex: 1})  // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표시할 인포윈도우
   },
   methods: {

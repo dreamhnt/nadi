@@ -1,7 +1,7 @@
 <template>
   <div id="menu_wrap">
     <keyword @search="search"></keyword>
-    <div class="list">
+    <div class="list" v-infinite-scroll="loadMore">
       <at-card v-for="p in placeList" :key="p.id">
         <h4 slot="title">{{ p.place_name }}</h4>
         <div>
@@ -14,18 +14,31 @@
 
 <script>
 import Keyword from './keyword'
+import infiniteScroll from 'vue-infinite-scroll'
 
 export default {
   name: 'PlaceList',
   data () {
     return {
-      placeList: []
+      placeList: [],
+      pagination: null
     }
   },
   components: { Keyword },
+  directives: { infiniteScroll },
   methods: {
     search ({ data, pagination }) {
-      this.placeList = data
+      this.pagination = pagination
+      if (pagination.current === 1) {
+        this.placeList = data
+      } else {
+        this.placeList = this.placeList.concat(data)
+      }
+    },
+    loadMore () {
+      if (this.pagination && this.pagination.hasNextPage) {
+        this.pagination.nextPage()
+      }
     }
   }
 }

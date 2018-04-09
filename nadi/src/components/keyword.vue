@@ -1,8 +1,8 @@
 <template>
 <div>
   <at-input v-model="keyword" placeholder="키워드" append-button @keyup.native.enter="searchPlaces">
-    <template slot="append" @click="searchPlaces">
-      <i class="icon icon-search"></i>
+    <template slot="append">
+      <i class="icon icon-search" @click="searchPlaces"></i>
     </template>
   </at-input>
 </div>
