@@ -1,7 +1,7 @@
 <template>
 <div>
   <Input v-model="keyword" placeholder="키워드" append-button @keyup.native.enter="searchPlaces">
-    <Button slot="append" icon="ios-search"></Button>
+    <Button slot="append" icon="ios-search" @click="searchPlaces"></Button>
   </Input>
 </div>
 </template>
@@ -33,7 +33,7 @@ export default {
       if (status === window.daum.maps.services.Status.OK) {
         this.$emit('search', { data, pagination })
       } else if (status === window.daum.maps.services.Status.ZERO_RESULT) {
-        this.$Message('검색 결과가 존재하지 않습니다.')
+        this.$Message.info('검색 결과가 존재하지 않습니다.')
       } else if (status === window.daum.maps.services.Status.ERROR) {
         this.$Message.error('오류가 발생했습니다.')
       }

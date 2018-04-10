@@ -38,7 +38,6 @@ export default {
   components: { Keyword },
   methods: {
     search ({ data, pagination }) {
-      console.log(data)
       this.pagination = pagination
       if (pagination.current === 1) {
         this.placeList = data

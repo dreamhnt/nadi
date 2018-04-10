@@ -29,7 +29,7 @@
           </p>
           <p class="rate">
             <span>총점</span>
-            <Rate allow-half v-model="modalData.hot"></Rate>
+            <Rate allow-half v-model="modalData.total"></Rate>
           </p>
           <Input v-model="tagText" placeholder="태그입력" @keyup.native.enter="pushTag" style="margin-top:10px"></Input>
           <div style="margin-top:10px">
