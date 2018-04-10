@@ -1,16 +1,14 @@
 <template>
 <div>
-  <at-input v-model="keyword" placeholder="키워드" append-button @keyup.native.enter="searchPlaces">
-    <template slot="append">
-      <i class="icon icon-search" @click="searchPlaces"></i>
-    </template>
-  </at-input>
+  <Input v-model="keyword" placeholder="키워드" append-button @keyup.native.enter="searchPlaces">
+    <Button slot="append" icon="ios-search"></Button>
+  </Input>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Keyword',
+  name: 'keyword',
   data () {
     return {
       ps: null,

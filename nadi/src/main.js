@@ -3,13 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import AtComponents from 'at-ui'
-import 'at-ui-style'    // Import CSS
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
 
 // import 'at-ui-style/src/index.scss'      // Or import the unbuilt version of SCSS
 
-Vue.use(AtComponents)
-Vue.config.productionTip = false
+Vue.use(iView)
+Vue.config.productionTip = true
 
 /* eslint-disable no-new */
 new Vue({
