@@ -20,6 +20,10 @@
             <Rate allow-half v-model="modalData.hot"></Rate>
           </p>
           <p class="rate">
+            <span>서비스</span>
+            <Rate allow-half v-model="modalData.service"></Rate>
+          </p>
+          <p class="rate">
             <span>청결함</span>
             <Rate allow-half v-model="modalData.clean"></Rate>
           </p>
@@ -67,6 +71,7 @@ export default {
         hot: 0,
         clean: 0,
         toilet: 0,
+        service: 0,
         tags: []
       }
     }
